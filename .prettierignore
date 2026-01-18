@@ -1,0 +1,11 @@
+node_modules
+.next
+dist
+build
+.yarn
+.pnp.*
+*.lock
+coverage
+.env
+.env.local
+.env.*.local
