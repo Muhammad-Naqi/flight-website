@@ -48,42 +48,42 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <span className="text-2xl sm:text-3xl">✈️</span>
-              <span className="text-xl sm:text-2xl font-bold text-primary-500">Flight Travel</span>
+            <Link href="/" className="flex items-center space-x-2 group">
+              <span className="text-2xl sm:text-3xl grayscale group-hover:grayscale-0 transition-all duration-500">🌿</span>
+              <span className="text-xl sm:text-2xl font-medium tracking-tight text-[#272220]">Flight Travel</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-gray-800 hover:text-primary-500 transition-colors font-medium text-sm"
+              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
             >
               Home
             </Link>
             <Link
               href="/blogs"
-              className="text-gray-800 hover:text-primary-500 transition-colors font-medium text-sm"
+              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
             >
-              Travel Blogs
+              Stories
             </Link>
             <Link
               href="/about"
-              className="text-gray-800 hover:text-primary-500 transition-colors font-medium text-sm"
+              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
             >
-              About
+              Cabins
             </Link>
             <Link
               href="/contact"
-              className="text-gray-800 hover:text-primary-500 transition-colors font-medium text-sm"
+              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
             >
               Contact
             </Link>
             {!loading && isLoggedIn && user ? (
               <Link
                 href="/me"
-                className="w-10 h-10 flex items-center justify-center bg-primary-500 text-white rounded-full hover:bg-primary-600 transition-colors font-semibold text-sm"
+                className="w-10 h-10 flex items-center justify-center bg-[#455a30] text-white rounded-full hover:bg-[#2f3c22] transition-colors font-medium text-sm"
                 title={`${user.firstName} ${user.lastName}`}
               >
                 {getUserInitials(user)}
@@ -91,7 +91,7 @@ export default function Header() {
             ) : !loading && !isLoggedIn ? (
               <Link
                 href="/login"
-                className="px-5 py-2 bg-primary-500 text-white rounded-md hover:bg-primary-600 transition-colors font-medium text-sm"
+                className="px-6 py-2.5 bg-[#455a30] text-white rounded-md hover:bg-[#2f3c22] transition-colors font-medium text-xs tracking-wider uppercase"
               >
                 Sign In
               </Link>
