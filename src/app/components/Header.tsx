@@ -36,6 +36,15 @@ export default function Header() {
     checkAuth();
   }, []);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const getUserInitials = (user: User | null): string => {
     if (!user) return '';
     const firstInitial = user.firstName?.[0]?.toUpperCase() || '';
@@ -44,13 +53,13 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background shadow-sm border-b border-gray-200/50 py-2' : 'bg-transparent py-4'}`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
               <span className="text-2xl sm:text-3xl grayscale group-hover:grayscale-0 transition-all duration-500">🌿</span>
-              <span className="text-xl sm:text-2xl font-medium tracking-tight text-[#272220]">Flight Travel</span>
+              <span className="text-xl sm:text-2xl font-medium tracking-tight text-foreground">Flight Travel</span>
             </Link>
           </div>
 
@@ -58,32 +67,32 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
+              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
             >
               Home
             </Link>
             <Link
               href="/blogs"
-              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
+              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
             >
               Stories
             </Link>
             <Link
               href="/about"
-              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
+              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
             >
               Cabins
             </Link>
             <Link
               href="/contact"
-              className="text-[#272220] hover:opacity-70 transition-opacity font-medium text-xs tracking-wider uppercase"
+              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
             >
               Contact
             </Link>
             {!loading && isLoggedIn && user ? (
               <Link
                 href="/me"
-                className="w-10 h-10 flex items-center justify-center bg-[#455a30] text-white rounded-full hover:bg-[#2f3c22] transition-colors font-medium text-sm"
+                className="w-10 h-10 flex items-center justify-center bg-primary-700 text-white rounded-full hover:bg-primary-800 transition-colors font-medium text-sm"
                 title={`${user.firstName} ${user.lastName}`}
               >
                 {getUserInitials(user)}
@@ -91,7 +100,7 @@ export default function Header() {
             ) : !loading && !isLoggedIn ? (
               <Link
                 href="/login"
-                className="px-6 py-2.5 bg-[#455a30] text-white rounded-md hover:bg-[#2f3c22] transition-colors font-medium text-xs tracking-wider uppercase"
+                className="btn-primary"
               >
                 Sign In
               </Link>
@@ -100,7 +109,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-primary-600"
+            className="md:hidden p-2 rounded-md text-foreground hover:text-primary-600 transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -125,31 +134,31 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div className="md:hidden py-4 space-y-2 bg-background/95 backdrop-blur-sm rounded-lg mt-2 px-4 shadow-lg border border-gray-100/50">
             <Link
               href="/"
-              className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+              className="block px-3 py-2 text-foreground hover:text-primary-700 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/blogs"
-              className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+              className="block px-3 py-2 text-foreground hover:text-primary-700 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Blogs
             </Link>
             <Link
               href="/about"
-              className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+              className="block px-3 py-2 text-foreground hover:text-primary-700 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="block px-3 py-2 text-gray-700 hover:text-primary-600"
+              className="block px-3 py-2 text-foreground hover:text-primary-700 font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
@@ -157,20 +166,17 @@ export default function Header() {
             {!loading && isLoggedIn && user ? (
               <Link
                 href="/me"
-                className="block px-3 py-2 bg-primary-600 text-white rounded-lg"
+                className="block px-3 py-2 bg-primary-700 text-white rounded-md mt-4 text-center font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
-                <div className="flex items-center space-x-2">
-                  <span className="w-8 h-8 flex items-center justify-center bg-primary-700 text-white rounded-full font-semibold text-xs">
-                    {getUserInitials(user)}
-                  </span>
+                <div className="flex items-center justify-center space-x-2">
                   <span>My Profile</span>
                 </div>
               </Link>
             ) : !loading && !isLoggedIn ? (
               <Link
                 href="/login"
-                className="block px-3 py-2 bg-primary-600 text-white rounded-lg"
+                className="block px-3 py-2 bg-primary-700 text-white rounded-md mt-4 text-center font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Login
