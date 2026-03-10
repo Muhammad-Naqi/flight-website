@@ -60,13 +60,13 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8 sm:pt-32 sm:pb-12">
       <div className="mb-8">
-        <h1 className="text-4xl font-bold text-gray-900">My Account</h1>
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">My Account</h1>
         <p className="text-gray-600 mt-2">Manage your account information</p>
       </div>
 
-      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-8">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-4 sm:p-6 md:p-8">
         <div className="mb-6">
           <h2 className="text-2xl font-semibold text-gray-900 mb-6">Personal Information</h2>
           <div className="space-y-4">

@@ -51,7 +51,7 @@ export default async function HomePage() {
   return (
     <>
       {/* Hero Section with Search - Luxury Nature Style */}
-      <section className="relative w-full h-screen min-h-[750px] flex flex-col items-center justify-center text-white overflow-hidden">
+      <section className="relative w-full min-h-screen sm:h-screen sm:min-h-[750px] flex flex-col items-center justify-start sm:justify-center text-white overflow-hidden">
         {/* Background Image - Stunning Generated AI Cabin/Forest Image */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-[10s] hover:scale-105"
@@ -61,18 +61,18 @@ export default async function HomePage() {
         <div className="absolute inset-0 z-0 bg-black/40"></div>
         <div className="absolute inset-x-0 bottom-0 z-0 h-64 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center w-full mt-24">
-          <div className="text-center mb-12 sm:mb-20 animate-fade-in-up">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[96px] font-normal tracking-[-0.04em] mb-6 leading-[1.05] drop-shadow-md">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center w-full pt-28 pb-10 sm:pt-0 sm:pb-0 sm:mt-24">
+          <div className="text-center mb-6 sm:mb-20 animate-fade-in-up">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[96px] font-normal tracking-[-0.04em] mb-3 sm:mb-6 leading-[1.1] drop-shadow-md">
               Find your <br className="hidden sm:block" /> wild escape.
             </h1>
-            <p className="text-lg sm:text-xl text-white/95 font-light max-w-2xl mx-auto drop-shadow-sm">
+            <p className="text-sm sm:text-lg md:text-xl text-white/95 font-light max-w-2xl mx-auto drop-shadow-sm px-2">
               Disconnect from the everyday. Reconnect with nature in our curated selection of luxury destinations.
             </p>
           </div>
 
           {/* Search Form */}
-          <div className="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-md p-2 rounded-xl border border-white/20 shadow-2xl">
+          <div className="w-full max-w-4xl mx-auto bg-white/10 backdrop-blur-md p-1.5 sm:p-2 rounded-xl border border-white/20 shadow-2xl">
              <div className="bg-white rounded-lg shadow-xl overflow-hidden">
                <SearchForm />
              </div>
@@ -83,9 +83,9 @@ export default async function HomePage() {
       {/* Quick Links Section */}
       <section className="py-12 sm:py-16 bg-background relative z-10 border-b border-gray-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-24">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 md:gap-24">
             <Link href="/blogs" className="flex flex-col items-center space-y-4 group text-foreground transition-all">
-              <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center text-3xl group-hover:bg-primary-200 group-hover:scale-105 transition-all duration-300 shadow-sm border border-primary-200">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-primary-100 flex items-center justify-center text-2xl sm:text-3xl group-hover:bg-primary-200 group-hover:scale-105 transition-all duration-300 shadow-sm border border-primary-200">
                 📖
               </div>
               <span className="font-medium tracking-wide text-xs uppercase opacity-80 group-hover:opacity-100 group-hover:text-primary-800 transition-colors">Stories</span>
@@ -117,7 +117,7 @@ export default async function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-2xl">
-              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.03em] text-foreground mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-[-0.03em] text-foreground mb-4">
                 The journey awaits
               </h2>
               <p className="text-gray-600 text-lg font-light leading-relaxed">
@@ -178,7 +178,7 @@ export default async function HomePage() {
             <div className="h-1 w-16 bg-primary-400 mx-auto rounded-full"></div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 md:gap-16">
             {[
               { text: "The most serene and beautiful cabin we've ever stayed in. The attention to detail is unmatched and the surroundings took our breath away.", author: "Sarah Jenkins", role: "Photographer", img: "/avatar_1_photographer_1772975500999.png" },
               { text: "A truly transformative experience. Waking up to the sound of the forest, wrapped in absolute luxury. It was exactly what we needed to reset.", author: "Michael Chen", role: "Architect", img: "/avatar_2_architect_1772975551308.png" },
@@ -210,7 +210,7 @@ export default async function HomePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col sm:flex-row justify-between items-end mb-16 gap-6">
               <div className="max-w-2xl">
-                <h2 className="text-4xl sm:text-5xl font-normal tracking-[-0.03em] text-foreground mb-4">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal tracking-[-0.03em] text-foreground mb-4">
                   Stories from the wild
                 </h2>
                 <p className="text-gray-600 text-lg font-light leading-relaxed">
@@ -239,10 +239,10 @@ export default async function HomePage() {
         <div className="absolute inset-0 bg-[url('/hero_cabin_forest_1772975108024.png')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl font-normal tracking-[-0.04em] mb-8 drop-shadow-sm">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-normal tracking-[-0.04em] mb-6 sm:mb-8 drop-shadow-sm">
             Begin your escape
           </h2>
-          <p className="text-lg sm:text-2xl mb-12 text-primary-100 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+          <p className="text-base sm:text-lg md:text-2xl mb-8 sm:mb-12 text-primary-100 font-light max-w-2xl mx-auto leading-relaxed drop-shadow-sm px-2">
             Join our private newsletter to receive early access to new cabins and bespoke itineraries.
           </p>
           <Link

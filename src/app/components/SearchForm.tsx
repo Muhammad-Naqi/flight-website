@@ -20,8 +20,8 @@ export default function SearchForm() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="bg-white rounded-lg border border-gray-100 p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-        <div className="flex flex-col md:flex-row gap-6 mb-6">
+      <div className="bg-white rounded-lg border border-gray-100 p-4 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="flex flex-col md:flex-row gap-4 sm:gap-6 mb-4 sm:mb-6">
           <div className="flex-1">
             <label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-2">From</label>
             <input
@@ -43,7 +43,7 @@ export default function SearchForm() {
             />
           </div>
         </div>
-        <div className="flex flex-col md:flex-row gap-6 mb-8">
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 mb-4 sm:mb-8">
           <div className="flex-1">
             <label className="block text-xs font-medium text-gray-500 uppercase tracking-widest mb-2">Departure</label>
             <input
@@ -81,7 +81,7 @@ export default function SearchForm() {
         </div>
         <button
           type="submit"
-          className="w-full md:w-auto px-10 py-4 bg-[#272220] text-white font-medium tracking-wide uppercase text-sm rounded-md hover:bg-black transition-colors"
+          className="w-full md:w-auto px-10 py-3 sm:py-4 bg-[#272220] text-white font-medium tracking-wide uppercase text-sm rounded-md hover:bg-black transition-colors"
         >
           Check Availability
         </button>

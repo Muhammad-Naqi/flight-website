@@ -47,7 +47,7 @@ function LoginForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-24 sm:py-32">
       {/* Premium Image Background */}
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -57,11 +57,11 @@ function LoginForm() {
 
       <div className="relative z-10 max-w-md w-full mx-4 sm:mx-6 lg:mx-8">
         {/* Glassmorphic Auth Card */}
-        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-8 sm:p-10">
+        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-6 sm:p-8 lg:p-10">
           <div className="text-center mb-10">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <span className="text-4xl grayscale">🌿</span>
-              <h1 className="text-3xl font-medium tracking-tight text-foreground">Sign In</h1>
+              <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground">Sign In</h1>
             </div>
             <p className="text-gray-500 font-light">Welcome back to Flight Travel</p>
           </div>

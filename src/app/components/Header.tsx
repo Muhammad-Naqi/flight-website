@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { apiClient } from '@/lib';
 import type { User } from '@/lib';
 
 export default function Header() {
   const router = useRouter();
+  const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -52,14 +53,19 @@ export default function Header() {
     return `${firstInitial}${lastInitial}`;
   };
 
+  const isDarkHeroPage = ['/', '/login', '/signup'].includes(pathname);
+  const textColor = isScrolled || !isDarkHeroPage ? 'text-foreground' : 'text-white';
+  const navItemClass = `hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase ${isScrolled || !isDarkHeroPage ? 'text-foreground' : 'text-white/90 hover:text-white'}`;
+  const mobileMenuButtonClass = `md:hidden p-2 rounded-md transition-colors ${isScrolled || !isDarkHeroPage ? 'text-foreground hover:text-primary-600' : 'text-white hover:text-white/80'}`;
+
   return (
-    <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-background shadow-sm border-b border-gray-200/50 py-2' : 'bg-transparent py-4'}`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className={`fixed w-full z-50 transition-all duration-500 ${isScrolled ? 'bottom-0 top-auto py-2' : 'top-0 py-4'}`}>
+      <nav className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 transition-all duration-500 ${isScrolled ? 'bg-white/80 backdrop-blur-xl shadow-lg shadow-black/5 rounded-2xl mx-4 sm:mx-6 lg:mx-auto mb-3 border border-gray-200/50' : ''}`}>
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2 group">
               <span className="text-2xl sm:text-3xl grayscale group-hover:grayscale-0 transition-all duration-500">🌿</span>
-              <span className="text-xl sm:text-2xl font-medium tracking-tight text-foreground">Flight Travel</span>
+              <span className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${textColor}`}>Flight Travel</span>
             </Link>
           </div>
 
@@ -67,25 +73,25 @@ export default function Header() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="/"
-              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
+              className={navItemClass}
             >
               Home
             </Link>
             <Link
               href="/blogs"
-              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
+              className={navItemClass}
             >
               Stories
             </Link>
             <Link
               href="/about"
-              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
+              className={navItemClass}
             >
               Cabins
             </Link>
             <Link
               href="/contact"
-              className="text-foreground hover:text-primary-600 transition-colors font-medium text-xs tracking-wider uppercase"
+              className={navItemClass}
             >
               Contact
             </Link>
@@ -109,7 +115,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2 rounded-md text-foreground hover:text-primary-600 transition-colors"
+            className={mobileMenuButtonClass}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

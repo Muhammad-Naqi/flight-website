@@ -41,9 +41,9 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden py-24 sm:py-32">
       {/* Premium Image Background */}
-      <div 
+      <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url("/modern_treehouse_forest_1772975391211.png")' }}
       ></div>
@@ -51,11 +51,11 @@ export default function SignupPage() {
 
       <div className="relative z-10 max-w-md w-full mx-4 sm:mx-6 lg:mx-8">
         {/* Glassmorphic Auth Card */}
-        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-8 sm:p-10 my-8">
-          <div className="text-center mb-10">
+        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-2xl border border-white/20 p-6 sm:p-8 lg:p-10 my-8">
+          <div className="text-center mb-8 sm:mb-10">
             <div className="flex items-center justify-center space-x-2 mb-4">
               <span className="text-4xl grayscale">🌿</span>
-              <h1 className="text-3xl font-medium tracking-tight text-foreground">Create Account</h1>
+              <h1 className="text-2xl sm:text-3xl font-medium tracking-tight text-foreground">Create Account</h1>
             </div>
             <p className="text-gray-500 font-light">Join Flight Travel today</p>
           </div>
@@ -67,7 +67,7 @@ export default function SignupPage() {
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
                   First Name
@@ -95,7 +95,6 @@ export default function SignupPage() {
                 />
               </div>
             </div>
-
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                 Email Address

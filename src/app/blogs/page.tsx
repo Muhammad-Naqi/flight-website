@@ -65,7 +65,7 @@ export default async function BlogsPage({ searchParams }: { searchParams: { page
   const blogsData = await getBlogs(currentPage);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-8 sm:pt-32 sm:pb-12">
       <ApiStatus />
       <div className="mb-6 sm:mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Travel Blogs</h1>
